@@ -8,11 +8,13 @@ function loop () {
 
   const time = new Date().toISOString()
   const hour = time.split('T')[1].split(':')[0]
-  if (hour !== '21') return
+  if (hour !== '20') return
 
   check(function (err, game) {
     if (err) return console.log(err)
     if (!game) return
+    if (game.day === 'SUN') return
+    if (game.day === 'SAT') return
 
     sendEmail({
         from: {name: 'Dodger Games', email: 'dodgers@thhis.com'},
