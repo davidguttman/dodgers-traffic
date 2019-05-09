@@ -43,9 +43,10 @@ function createGamePage (game) {
                 <video
                   style="width: 480px; height: 480px; left: 0px; top: 0px;"
                   src="https://media2.giphy.com/media/AOMAKouVm1A2Y/giphy.mp4?cid=790b76115cd4951d6c36647436130e2a&amp;rid=giphy.mp4" poster="https://media2.giphy.com/media/AOMAKouVm1A2Y/giphy_s.gif?cid=790b76115cd4951d6c36647436130e2a&amp;rid=giphy_s.gif"
-                  autoplay=""
-                  loop=""
-                  playsinline="">
+                  autoplay
+                  loop
+                  muted
+                  playsinline>
                 </video>
               </div>
           </header>
@@ -78,7 +79,15 @@ function createNoGamePage () {
                 There's no game at Dodger Stadium tonight.
               </h2>
               <div>
-                <video style="width: 480px; height: 285.68px; left: 0px; top: 0px;" alt="antonio banderas relief GIF" src="https://media0.giphy.com/media/1guRIRFV5gN4ikrUakg/giphy.mp4?cid=790b76115cd4971a594b3271732fd348&amp;rid=giphy.mp4" poster="https://media0.giphy.com/media/1guRIRFV5gN4ikrUakg/giphy_s.gif?cid=790b76115cd4971a594b3271732fd348&amp;rid=giphy_s.gif" autoplay="" loop="" playsinline=""></video>
+                <video
+                  style="width: 480px; height: 285.68px; left: 0px; top: 0px;"
+                  alt="antonio banderas relief GIF"
+                  src="https://media0.giphy.com/media/1guRIRFV5gN4ikrUakg/giphy.mp4?cid=790b76115cd4971a594b3271732fd348&amp;rid=giphy.mp4" poster="https://media0.giphy.com/media/1guRIRFV5gN4ikrUakg/giphy_s.gif?cid=790b76115cd4971a594b3271732fd348&amp;rid=giphy_s.gif"
+                  autoplay
+                  loop
+                  muted
+                  playsinline>
+                </video>
               </div>
           </header>
         </section>
