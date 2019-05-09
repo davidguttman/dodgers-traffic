@@ -8,6 +8,8 @@ const emailLoop = require('./email-loop')
 const port = process.env.PORT || 5000
 
 http.createServer(function (req, res) {
+  if (req.url === '/no') return res.end(createNoGamePage().toString())
+
   check(function (err, game) {
     if (err) return res.end(JSON.stringify(err))
 
