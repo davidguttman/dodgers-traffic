@@ -1,8 +1,10 @@
-var http = require('http')
-var html = require('nanohtml')
-var check = require('./check-game')
+const http = require('http')
+const html = require('nanohtml')
 
-var port = process.env.PORT || 5000
+const check = require('./check-game')
+const emailLoop = require('./email-loop')
+
+const port = process.env.PORT || 5000
 
 http.createServer(function (req, res) {
   check(function (err, game) {
