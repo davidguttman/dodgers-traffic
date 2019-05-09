@@ -1,5 +1,6 @@
 const http = require('http')
 const html = require('nanohtml')
+const moment = require('moment')
 
 const check = require('./check-game')
 const emailLoop = require('./email-loop')
@@ -33,6 +34,7 @@ function createGamePage (game) {
               <h1 class="f1 f-headline-l code mb3 fw9 dib tracked-tight" style="color: dodgerblue">Uh Oh</h1>
               <h2 class="tc f1-l fw1">
                 The ${game.home_team_name} are playing the ${game.away_team_name}
+                <br />
                 at ${game.home_time} ${game.ampm} tonight.
               </h2>
               <div>
@@ -45,6 +47,11 @@ function createGamePage (game) {
                 </video>
               </div>
           </header>
+          <p class='tc'>
+            <a href='http://mlb.com${game.links.home_preview}' style='color: dodgerblue'>
+              Sorry to say, but there's a game at ${game.venue} on
+              ${moment(game.original_date, 'YYYY/MM/DD').format('LL')} at ${game.home_time} ${game.ampm}.</a>
+          </p>
         </section>
       </body>
     </html>
