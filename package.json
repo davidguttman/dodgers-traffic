@@ -1,0 +1,17 @@
+{
+  "name": "dodgers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "David Guttman <david@guttman.io> (http://davidguttman.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "mlbgames": "^1.0.5",
+    "nanohtml": "^1.6.1",
+    "nodemon": "^1.19.0"
+  }
+}
