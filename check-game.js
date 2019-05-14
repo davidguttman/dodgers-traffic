@@ -1,7 +1,11 @@
+const moment = require('moment-timezone')
 const Mlbgames = require('mlbgames')
 
 module.exports = function (cb) {
-  const [year, month, day] = new Date().toISOString().split('T')[0].split('-')
+  const [year, month, day] = moment()
+    .tz('America/Los_Angeles')
+    .format('YYYY-MM-DD')
+    .split('-')
 
   const options = { path: `year_${year}/month_${month}/day_${day}/` }
   const mlbgames = new Mlbgames(options)
