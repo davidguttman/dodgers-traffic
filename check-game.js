@@ -13,6 +13,9 @@ module.exports = function (cb) {
   mlbgames.get(function (err, games) {
     if (err) return cb(err)
 
-    cb(null, games.filter(g => g.venue === 'Dodger Stadium')[0])
+    cb(null, games
+      .filter(g => g.status.status !== 'Postponed')
+      .filter(g => g.venue === 'Dodger Stadium')[0]
+    )
   })
 }
