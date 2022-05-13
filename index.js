@@ -3,12 +3,20 @@ const html = require('nanohtml')
 const moment = require('moment')
 
 const check = require('./check-game')
-const emailLoop = require('./email-loop')
+const emailCheck = require('./email-check')
+// const emailLoop = require('./email-loop')
 
 const port = process.env.PORT || 5000
 
 http.createServer(function (req, res) {
   if (req.url === '/no') return res.end(createNoGamePage().toString())
+
+  if (req.url === '/email') {
+    return emailCheck(function (err) {
+      if (err) console.error(err)
+      res.end()
+    })
+  }
 
   check(function (err, game) {
     if (err) return res.end(JSON.stringify(err))
