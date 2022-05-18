@@ -1,6 +1,9 @@
+require('productionize')('dodgers')
+
 const http = require('http')
 const html = require('nanohtml')
 const moment = require('moment')
+const ReqLogger = require('req-logger')
 
 const check = require('./check-game')
 const emailCheck = require('./email-check')
@@ -8,7 +11,12 @@ const emailCheck = require('./email-check')
 
 const port = process.env.PORT || 5000
 
+var logger = ReqLogger({
+  version: require('./package.json').version // will show on every request
+})
+
 http.createServer(function (req, res) {
+  logger(req, res)
   if (req.url === '/no') return res.end(createNoGamePage().toString())
 
   if (req.url === '/email') {
