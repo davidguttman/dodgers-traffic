@@ -1,23 +1,17 @@
 const moment = require('moment-timezone')
-const Mlbgames = require('mlbgames')
+const dodgers = require('./dodgers')
 
 module.exports = function (cb) {
-  const [year, month, day] = moment()
+  const date = moment()
     .tz('America/Los_Angeles')
     .format('YYYY-MM-DD')
     .split('-')
 
-  const options = { path: `year_${year}/month_${month}/day_${day}/` }
-  const mlbgames = new Mlbgames(options)
-
-  mlbgames.get(function (err, games) {
+  dodgers(date, function (err, game) {
     if (err) return cb(err)
 
-    if (!games) return cb(new Error('No Games'))
+    if (!game.hasHomeGame) return cb(new Error('No Games'))
 
-    cb(null, games
-      .filter(g => g.status.status !== 'Postponed')
-      .filter(g => g.venue === 'Dodger Stadium')[0]
-    )
+    cb(null, game)
   })
 }
