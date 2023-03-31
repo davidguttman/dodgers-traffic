@@ -1,6 +1,8 @@
 // dodgers.js
 const axios = require('axios')
 
+const espnUrl = 'http://site.web.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/lad/schedule?region=us&lang=en&seasontype=2&half=1'
+
 module.exports = function getDodgersGameData (date, callback) {
   const baseURL = 'https://statsapi.mlb.com/api/v1/schedule'
   const queryParams = {
